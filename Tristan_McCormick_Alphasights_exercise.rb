@@ -9,6 +9,9 @@
 #--according to associated pattern
 #If not, generate all four with error message.
 
+$LOAD_PATH << '.'
+
+require 'Email_Object_Module.rb'
 
 sample_dataset = {
   "John Ferguson" => "john.ferguson@alphasights.com",
@@ -20,9 +23,14 @@ sample_dataset = {
 }
 
 email_objects_hash = Hash.new(sample_dataset.length)
+company_email_format_hash = Hash.new()
 
 sample_dataset.each do |name, email|
   s = EmailObject.new(name,email)
   email_objects_hash[s.name] = s
 end
-puts email_objects_hash
+
+
+def add_company_email_format(email_object)
+
+end
