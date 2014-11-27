@@ -1,19 +1,21 @@
 #Takes two hashes, one of name-emails (sample dataset) and another of
 #name-company pairs
-#parses the first array into first name, last name, local part and domain
+#parse the first array into first name, last name, local part and domain
 #Calculate email format
 #Inserts company name:email format pairs into dictionary--
 #--Where the email format is one of the four offered
+#--record error if conflicting formats present in sample
 #Take second array of names and companies
 #If company is in dictionary, calculate possible email--
 #--according to associated pattern
-#If not, generate all four with error message.
+#If not, record error.
 
 $LOAD_PATH << '.'
+require 'Email_Prediction_Module.rb'
+require 'pry'
 
-require 'Email_Object_Module.rb'
 
-sample_dataset = {
+sample_dataset_hash = {
   "John Ferguson" => "john.ferguson@alphasights.com",
   "Damon Aw" => "damon.aw@alphasights.com",
   "Linda Li" => "linda.li@alphasights.com",
@@ -22,15 +24,14 @@ sample_dataset = {
   "Steve Jobs" => "s.j@apple.com"
 }
 
-email_objects_hash = Hash.new(sample_dataset.length)
-company_email_format_hash = Hash.new()
+prediction_dataset_hash = {
+  "Peter Wong" => "alphasights.com",
+  "Craig Silverstein" => "google.com",
+  "Steve Wozniak" => "apple.com",
+  "Barack Obama" => "whitehouse.gov"
+}
 
-sample_dataset.each do |name, email|
-  s = EmailObject.new(name,email)
-  email_objects_hash[s.name] = s
-end
 
+email_predictor = EmailPredictionObject.new(sample_dataset_hash)
 
-def add_company_email_format(email_object)
-
-end
+email_predictor.predict_email(prediction_dataset_hash)
