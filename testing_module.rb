@@ -1,9 +1,12 @@
-class Sample_Class
-  attr_accessor :hash
-  @hash = Hash.new
+class Called_class
   def initialize
-    puts @hash
-    @hash["tristan"] = "boobs"
-    puts @hash
+    @not_parameter = "boobs"
+  end
+  def iterate
+    array = ["hello","world"];
+
+    array.each do |not_parameter|
+      puts not_parameter
+    end
   end
 end
