@@ -14,7 +14,7 @@ $LOAD_PATH << '.'
 require 'Email_Prediction_Module.rb'
 require 'pry'
 
-
+#Incoming hash with name-email pairs to base the company email formats on
 sample_dataset_hash = {
   "John Ferguson" => "john.ferguson@alphasights.com",
   "Damon Aw" => "damon.aw@alphasights.com",
@@ -23,12 +23,12 @@ sample_dataset_hash = {
   "Sergey Brin" => "s.brin@google.com",
   "Steve Jobs" => "s.j@apple.com"
 }
-
+#Hash of name-company pairs that need emails predicted.
 prediction_dataset_hash = {
   "Peter Wong" => "alphasights.com",
   "Craig Silverstein" => "google.com",
   "Steve Wozniak" => "apple.com",
-  "Barack Obama" => "whitehouse.gov"
+  "Barack Obama" => "whitehouse.gov",
 }
 
 
