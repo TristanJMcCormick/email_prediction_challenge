@@ -113,8 +113,7 @@ class EmailPredictionObject
           end
         end
       else
-        puts "We can't predict the email for " + new_email.domain + " as it" +
-        + " wasn't in the sample hash"
+        puts "We can't predict the email for " + new_email.domain + " as it wasn't in the sample hash"
       end
       puts "Email:#{new_email.email}"
       puts "\n"
